@@ -5,7 +5,12 @@ class Solution:
         """
         x = k% len(nums)
 
-        temp = nums[-x :]
-        del nums[-x:]
-
-        nums[:0] = temp
+        def rev(s,e):
+            while s<e:
+                nums[s],nums[e] = nums[e],nums[s]
+                s+=1
+                e-=1
+            
+        nums.reverse()
+        rev(0,x-1)
+        rev(x , len(nums)-1)
